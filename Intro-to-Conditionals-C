@@ -44,17 +44,18 @@ char* readline();
 
 int main()
 {
-    char mydict[11][6]={"zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}; //Taken by me.
+    char mydict[11][6]={"zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}; 
     char* n_endptr;
     char* n_str = readline();
     int n = strtol(n_str, &n_endptr, 10);
 
     if (n_endptr == n_str || *n_endptr != '\0') { exit(EXIT_FAILURE); }
 
-    if(n<=9){                   /* This is intro lv. program so only this part of code is done By me and rest was already done by Hackerrank team.
+   //Complete the code
+   if(n<=9){                   
     printf("%s", mydict[n]);      
 }else{
-    printf("Greater than 9");     */
+    printf("Greater than 9");   
 }
 
     return 0;
