@@ -1,0 +1,81 @@
+Print a pattern of numbers from 1 to n as shown below. Each of the numbers is separated by a single space.
+
+                            4 4 4 4 4 4 4  
+                            4 3 3 3 3 3 4   
+                            4 3 2 2 2 3 4   
+                            4 3 2 1 2 3 4   
+                            4 3 2 2 2 3 4   
+                            4 3 3 3 3 3 4   
+                            4 4 4 4 4 4 4   
+Input Format
+
+The input will contain a single integer .
+
+Constraints
+1<=x<=1000
+Sample Input 0
+2
+Sample Output 0
+2 2 2
+2 1 2
+2 2 2
+Sample Input 1
+5
+Sample Output 1
+5 5 5 5 5 5 5 5 5 
+5 4 4 4 4 4 4 4 5 
+5 4 3 3 3 3 3 4 5 
+5 4 3 2 2 2 3 4 5 
+5 4 3 2 1 2 3 4 5 
+5 4 3 2 2 2 3 4 5 
+5 4 3 3 3 3 3 4 5 
+5 4 4 4 4 4 4 4 5 
+5 5 5 5 5 5 5 5 5
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+
+int n;
+scanf("%d", &n);
+// Complete the code to print the pattern.
+// {Desceding} {Same} {Ascending} ex: {43} {222} {34}
+// Logic in looping need to change after i>=n
+for (int i=0; i < 2*n-1; i++){  
+    if (i < n){
+        // Draw desceding number (ex: 4 43 432 4321)
+        for (int j=0; j < i; j++){
+            printf("%d ", n-j);
+        }
+        // Draw the same number
+        for (int k=2*(n-i)-1; k > 0; k--){
+            printf("%d ", n-i);
+        }
+        // Draw ascending number (ex: 4 34 234)
+        for (int l=0; l < i; l++){
+            printf("%d ", n-i+l+1);
+        }
+        printf("\n");
+    } else {
+        // Draw desceding number (ex: 4321 432 43)
+        for (int j=0; j < 2*n-i-1; j++){
+            printf("%d ", n-j);
+        }
+        // Draw the same number
+        for (int k=2*(i-n)+2; k > 0; k--){
+            printf("%d ", i-n+2);
+        }
+        // Draw desceding number (ex: 34 4)
+        for (int l=0; l < 2*n-i-2 ; l++){
+            printf("%d ", i-n+l+3);
+        }
+        printf("\n");
+    }
+
+}
+
+return 0;
+}
